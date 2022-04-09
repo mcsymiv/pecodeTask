@@ -38,3 +38,6 @@ pecode.username=Username
 pecode.password=Password
 ```
 And run individual tests from Intellij Run
+### Reporting
+Test reporting is available under `target/cucumber-report-html` path.
+Screenshots of falied tests: `target/cucumber-report-html/cucumber-html-reports/embeddings`.
