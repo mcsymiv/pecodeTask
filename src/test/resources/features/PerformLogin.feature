@@ -3,6 +3,7 @@ Feature: Check login form
   Scenario: Successful login
     When I fill in the username
     And I fill in the password
+    Then I see all elements on Login page
     And I click on Login Button
     Then I see Main page
 

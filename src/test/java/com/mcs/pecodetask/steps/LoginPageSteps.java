@@ -87,4 +87,29 @@ public class LoginPageSteps {
         );
 
     }
+
+    @Then("^I see all elements on Login page$")
+    public void iSeeAllElementsOnLoginPage() {
+        log.info("I see all elements on login page");
+        String errorMessage = "%s is not displayed";
+        Assert.assertTrue(
+                loginPage.getLogo().isDisplayed(),
+                String.format(errorMessage, "Logo"));
+
+        Assert.assertTrue(
+                loginPage.getTitle().isDisplayed(),
+                String.format(errorMessage, "Title"));
+
+        Assert.assertTrue(
+                loginPage.getPasswordInput().isDisplayed(),
+                String.format(errorMessage, "Password input"));
+
+        Assert.assertTrue(
+                loginPage.getUserNameInput().isDisplayed(),
+                String.format(errorMessage, "Username input"));
+
+        Assert.assertTrue(
+                loginPage.getLoginButton().isDisplayed(),
+                String.format(errorMessage, "Login button"));
+    }
 }

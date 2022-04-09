@@ -110,7 +110,7 @@
                     <systemPropertyVariables>
                         <pecode.browser>chrome</pecode.browser>
                         <pecode.username>Username</pecode.username>
-                        <pecode.username>Password</pecode.username>
+                        <pecode.password>Password</pecode.password>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>

@@ -24,6 +24,9 @@ public class LoginPage {
     @FindBy(how = How.ID, using = "logomini")
     private WebElement logo;
 
+    @FindBy(how = How.TAG_NAME, using = "h1")
+    private WebElement title;
+
     @FindBy(how = How.CSS, using = "input[name=\"username\"]")
     private WebElement userNameInput;
 
