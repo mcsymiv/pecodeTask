@@ -7,13 +7,15 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import lombok.extern.slf4j.Slf4j;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.Assert;
 
 @Slf4j
 public class LoginPageSteps {
+
+    private final String USERNAME = "username";
+    private final String PASSWORD = "password";
 
     @Autowired
     private Helper helper;
@@ -65,5 +67,24 @@ public class LoginPageSteps {
                 errorMessage,
                 "Invalid error message in password help block"
         );
+    }
+
+    @Then("^I see (.*) help block \"(.*)\" error message$")
+    public void iSeeHelpBlockErrorMessage(String inputType, String errorMessage) {
+        log.info("I see {} help block {} error message", inputType, errorMessage);
+        WebElement helpElement;
+
+        if (inputType.equalsIgnoreCase(USERNAME)) {
+            helpElement = loginPage.getUsernameHelpBlock();
+        } else {
+            helpElement = loginPage.getPasswordHelpBlock();
+        }
+
+        Assert.assertEquals(
+                helper.waitVisibilityOfElement(helpElement, props.getTimewait()).getText(),
+                errorMessage,
+                "Invalid error message in " + inputType + " help block"
+        );
+
     }
 }

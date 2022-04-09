@@ -1,6 +1,5 @@
 package com.mcs.pecodetask.utils;
 
-import com.mcs.pecodetask.config.PecodePropsConfig;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,12 +14,6 @@ public class Helper {
 
     @Autowired
     private WebDriver webDriver;
-//    private final WebDriver webDriver;
-
-//    @Autowired
-//    public Helper(WebDriver webDriver) {
-//        this.webDriver = webDriver;
-//    }
 
     public WebElement waitVisibilityOfElement(
             WebElement element, int timeOfWait, int... timeOfTryOut

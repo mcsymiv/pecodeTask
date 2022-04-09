@@ -14,7 +14,7 @@
     <name>pecodeTask</name>
     <description>pecodeTask</description>
     <properties>
-        <tread.count>2</tread.count>
+        <thread.count>2</thread.count>
         <java.version>11</java.version>
         <testng.version>7.5</testng.version>
         <hamcrest.version>2.2</hamcrest.version>
@@ -67,14 +67,6 @@
             <version>${selenium.version}</version>
         </dependency>
 
-        <!-- ===== HAMCREST ===== -->
-        <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-library</artifactId>
-            <version>${hamcrest.version}</version>
-            <scope>test</scope>
-        </dependency>
-
         <!-- ===== TESTNG ===== -->
         <dependency>
             <groupId>org.testng</groupId>
@@ -106,12 +98,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
                 <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
                     <argLine>
-                        -Ddataproviderthreadcount=${tread.count}
+                        -Ddataproviderthreadcount=${thread.count}
                     </argLine>
-                    <includes>
-                        <include>com.mcs.pecodetask.CucumberRunnerTest</include>
-                    </includes>
                 </configuration>
             </plugin>
 

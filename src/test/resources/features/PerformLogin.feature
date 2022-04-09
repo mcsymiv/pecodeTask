@@ -1,4 +1,4 @@
-Feature: Perform login
+Feature: Check login form
 
   Scenario: Successful login
     When I fill in the username
@@ -11,9 +11,8 @@ Feature: Perform login
     And I fill in the password
     And I click on Login Button
     Then I see username "No account found with that username." error message
-#    Then I see password "Please enter your password." error message
 
-  Scenario: Check username error message
-    When I fill in the username
-    And I click on Login Button
-    Then I see username "Please enter username." error message
+  Scenario: Check form empty input error messages
+    Given I click on Login Button
+    Then I see username help block "Please enter username." error message
+    Then I see password help block "Please enter your password." error message
